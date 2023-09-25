@@ -1,0 +1,28 @@
+<div class="info bg-white ml-14 pt-8 pb-4 w-full flex flex-col justify-between">
+  <div>
+    <div class="mb-5">
+      <h1 class="text-[#02295A] font-bold text-2xl tracking-wide">Personal info</h1>
+      <p class="text-[#c0c3ce] text-xs font-medium">Please provide your name, email address, and phone number.</p>
+    </div>
+    <form [formGroup]="form">
+      <div class="mb-4">
+        <div for="name" class="text-[rgb(31,78,137)] font-semibold mb-2 text-sm">Name</div>
+        <input type="text" id="name" formControlName="name" class="border-2 min-w-full py-3 rounded-md px-2 hover:border-violet-600 text-sm font-semibold border-slate-200" placeholder="e.g. Stephen King">
+      </div>
+      <div class="mb-4">
+        <div for="email" class="text-[rgb(31,78,137)] font-semibold mb-2 text-sm">Email Address</div>
+        <input type="text" id="email" formControlName="email" class="border-2 w-full py-3 rounded-md px-2 hover:border-violet-600 text-sm font-semibold" placeholder="e.g. stephenking@lorem.com">
+      </div>
+      <div class="mb-4">
+        <div for="phoneNumber" class="text-[rgb(31,78,137)] font-semibold mb-2 text-sm">Phone Number</div>
+        <input type="text" id="phoneNumber" formControlName="phoneNumber" class="border-2 w-full py-3 rounded-md px-2 hover:border-violet-600 text-sm font-semibold" placeholder="e.g. +1 234 567 890" required title="Please enter your name">
+      </div>
+   </form>
+  </div>
+
+  <div>
+    <div class="flex mt-8">
+      <button type="submit" (click)="onSubmitForm()" [disabled]="form.invalid" class=" ml-auto text-white bg-[#02295A] hover:bg-[rgb(9,71,146)] px-3 rounded-md text-xs font-medium py-2">Next Step</button>
+    </div>
+  </div>
+</div>

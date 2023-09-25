@@ -1,0 +1,58 @@
+<div class="ml-14 flex flex-col justify-between plan pt-8 pb-4">
+  <div class="">
+    <div class="mb-7">
+      <h1 class="text-[#02295A] font-bold text-2xl tracking-wide mb-1">Select your plan</h1>
+      <div class="text-[#c0c3ce] text-xs font-medium">You have the option of monthly or yearly billing.</div>
+    </div>
+    <!-- cards part -->
+    <div class="flex justify-between gap-6">
+      <div *ngFor="let plan of plans" class="arcade">
+        <input type="radio" id="{{plan.id + '-option'}}" name="option" [(ngModel)]="option" value="{{plan.id}}" class="hidden peer">
+        <label for="{{plan.id + '-option'}}"
+          class="inline-flex flex-col text-left items-start justify-between text-gray-500 bg-white border-2 hover:border-violet-500 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-violet-500 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 peer-checked:bg-violet-50 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 active:border-violet-600 active:bg-violet-50 py-4 pl-4 pr-9">
+
+          <img src="{{'assets/images/' + plan.icon + '.svg'}}" alt="Arcade" class="">
+          <div>
+            <h1 class="mt-8 mb-1 text-[#1f1b79] font-semibold">{{plan.name}}</h1>
+            <div *ngIf="toggle; else elseNotDone">
+              <p class="mb-1 text-[#9699ab] text-xs font-medium tracking-wide">${{plan.price_yearly}}/yr</p>
+              <h2 class="mb-1 text-[#02295A] text-xs font-medium">2 months free</h2>
+            </div>
+            <ng-template #elseNotDone>
+              <p class="mb-1 text-[#9699ab] text-xs font-medium tracking-wide pr-10">${{plan.price_monthly}}/mo</p>
+              <h2 class="mb-1 text-[#02295A] text-xs font-medium"></h2>
+            </ng-template>
+          </div>
+
+        </label>
+      </div>
+    </div>
+
+
+    <!-- toggle part -->
+    <div class="mt-5 flex items-center text-center justify-center">
+      <div class="bg-[#f8f7fe] p-1 rounded-md flex items-center px-36">
+        <span class="mr-3 text-sm font-medium text-gray-900 dark:text-gray-300">Monthly</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" value="monthly"  class="sr-only peer" [(ngModel)]="toggle" checked>
+          <div
+            class="w-11 h-6 bg-[#02295A] rounded-full peer peer-focus:ring-4 peer-focus:ring-[#ffffff] dark:peer-focus:ring-[#02295A] dark:bg-[#02295A] peer-checked:after:translate-x-full peer-checked:after:border-[#02295A] after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#02295A]">
+          </div>
+        </label>
+        <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Yearly</span>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="flex justify-between items-center">
+    <button href="" class="text-slate-500 font-medium text-sm hover:text-blue-900 text-center" (click)="goBack()">Go Back</button>
+    <div class="">
+      <button (click)="onSubmitForm()"
+        class="text-white bg-[#02295A] hover:bg-[rgb(9,71,146)] px-3 rounded-md text-xs font-medium py-2">Next
+        Step</button>
+    </div>
+  </div>
+</div>

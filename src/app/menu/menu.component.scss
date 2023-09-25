@@ -1,0 +1,25 @@
+.bg-image{
+background-image: url('/assets/images/bg-sidebar-desktop.svg');
+background-repeat: no-repeat;
+background-size: auto;
+height: 568px;
+width: 274px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul a{
+  color: white;
+  text-decoration: none;
+}
+
+nav ul h1{
+  color: hsl(228, 100%, 84%);
+}
+
+nav ul li a.active .info{
+  background-color: hsl(228, 100%, 84%);
+  color: black;
+}
